@@ -1,0 +1,38 @@
+<main>
+
+    <!-- In case of error, display the following div-->
+    <!--
+
+            <div class="error-box">
+                <p>Show each error in a separate paragraph</p>
+            </div>
+
+            -->
+
+    <!-- Browse Page -->
+    <section id="catalog-section" class="spaced">
+
+        <h1 class="item">Auctions</h1>
+        {{#if auctions}}
+        <!-- List of available auctions -->
+        <ul class="catalog cards">
+            {{#each auctions}}
+            {{>auction}}
+            {{/each}}
+        </ul>
+        {{else}}
+
+        <!-- If there are no auctions to display -->
+        <div class="item pad-large align-center">
+            <p>Nothing has been listed yet. Be the first!</p>
+            {{#if isAuthenticated}}
+            <div>
+                <a class="action" href="/publish">Publish Auction</a>
+            </div>
+            {{/if}}
+        </div>
+        {{/if}}
+
+    </section>
+
+</main>
